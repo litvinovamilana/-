@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI кино советчик</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin: 30px 0;
+        }
+        textarea {
+            width: 80%;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            background-color: #e8f5e8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #4CAF50;
+        }
+        .ai-result {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎬 AI Кино Советчик</h1>
+    <p>Опишите ваше настроение, а AI подберет вам фильм</p>
+    
+    <form method="post">
+        <textarea name="message" id="message" rows="4" cols="60" placeholder="Опишите ваше настроение..." required>{{ user_text }}</textarea>
+        <br>
+        <button type="submit">Жми! Жми!</button>
+    </form>
+
+    {% if recommendation %}
+    <div class="result">
+        <h3>Результат анализа:</h3>
+        <p><strong>Ваш текст:</strong> "{{ user_text }}"</p>
+        <p><strong>Настроение:</strong> {{ recommendation }}</p>
+        
+        {% if ai_result %}
+        <div class="ai-result">
+            <h4>Рекомендация фильма:</h4>
+            <p>{{ ai_result }}</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ваусайт</title>
+</head>
+<body>
+    <h1>ваусайт</h1>
+    <p>Сегодня учимся отправлять данные из формы</p>
+    <form action="/" method="post">
+        <label for="message">какое у тебя настроение?🙂</label><br>
+        <textarea id="message" name="message" rows="1" cols="10">чики пуки</textarea><br>
+        <button type="submit">Жми! Жми!</button>
+    </form>
+
+    {% if recommendation %}
+    <div class="result">
+        <h3>ответ:</h3>
+        <p>{{ recommendation }}</p>
+        <p>{{ai_result}}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
